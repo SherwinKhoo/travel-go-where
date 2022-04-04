@@ -1,6 +1,6 @@
-# sei_35_p2_dotahub
+# sei_35_p3_travel_go_where
 
-Software Engineering Immersive - Project 2 - Travel Go Where
+Software Engineering Immersive - Project 3 - Travel Go Where
 
 Authors
 Amirul Ithnin | Khoo Kiah Hong, Sherwin | Quek Ying Ying
@@ -8,7 +8,7 @@ Amirul Ithnin | Khoo Kiah Hong, Sherwin | Quek Ying Ying
 Reviewers
 Desmond Lim | Ernest Mui | Lim Qizhen
 
-Project: Build a functional ****\_\_**** in a week.
+Project: Build a functional \***\*\_\_\*\*** in a week.
 
 Technologies Used
 
