@@ -35,9 +35,9 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
 
-const usersController = require("./controller/users.js");
+const usersController = require("./controllers/users.js");
 app.use("/users", usersController);
-const sessionsController = require("./controller/sessions.js");
+const sessionsController = require("./controllers/sessions.js");
 app.use("/sessions", sessionsController);
 
 app.listen(port, () => {
