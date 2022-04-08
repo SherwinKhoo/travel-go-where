@@ -3,7 +3,6 @@ const cors = require("cors");
 const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const connectDB = require("./db/db");
-const users = require("./controller/users");
 const port = process.env.PORT || 5001;
 
 const app = express();
@@ -31,7 +30,10 @@ app.use(express.urlencoded({ extended: false }));
 
 connectDB(process.env.MONGODB_URI);
 
-app.use("/users", users);
+const usersController = require("./controller/users.js");
+app.use("/users", usersController);
+const sessionsController = require("./controller/sessions.js");
+app.use("/sessions", sessionsController);
 
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);
