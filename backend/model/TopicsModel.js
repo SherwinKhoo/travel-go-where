@@ -7,6 +7,7 @@ const topicsSchema = Schema(
     date: { type: Date },
     content: { type: String, required: [true, "cannot be blank"] },
     categories: [{ type: String }],
+    country: { type: String, required: true },
     postId: { type: Number, min: 1 },
   },
   { timestamps: true }
