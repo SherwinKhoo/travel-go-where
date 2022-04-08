@@ -75,25 +75,18 @@ router.post(
 router.put(
   "/:country/:searchTopics/:searchTreads/:searchPost/edit",
   async (req, res) => {
-    try {
-      const updatePost = await Topics.updateOne(
-        { _id: req.params.searchPost },
-        {
-          title: req.body.title,
-          date: req.body.date,
-          content: req.body.content,
-          typeOfPost: req.body.typeOfPost,
-          categories: req.body.categories,
-          country: req.body.country,
-          postId: req.body.postId,
-        }
-      );
-      console.log(updatePost);
-      res.end();
-    } catch (error) {
-      console.log(error);
-      res.json("error");
-    }
+    const findPost = await Topics.updateOne(
+      {
+        _id: req.params.searchPost,
+      },
+      {
+        title: req.body.title,
+        content: req.body.content,
+      }
+    );
+    console.log(findPost);
+    console.log(req.params.searchPost);
+    res.json(findPost);
   }
 );
 

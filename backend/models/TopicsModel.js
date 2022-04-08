@@ -10,6 +10,7 @@ const topicsSchema = Schema(
     categories: [{ type: String }],
     country: { type: String, required: true },
     postId: { type: Number, min: 1 },
+    edited: { type: Boolean, required: false },
   },
   { timestamps: true }
 );
