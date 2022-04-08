@@ -35,10 +35,27 @@ mongoose.connection.once("open", () => {
   console.log("connected to mongo");
 });
 
-const usersController = require("./controllers/users.js");
+const usersController = require("./controllers/usersController.js");
 app.use("/users", usersController);
-const sessionsController = require("./controllers/sessions.js");
+const sessionsController = require("./controllers/sessionsController.js");
 app.use("/sessions", sessionsController);
+const topicsController = require("./controllers/topicsController.js");
+app.use("/topics", topicsController);
+
+// seeding countries
+// const Countries = require("./models/CountriesModel");
+// Countries.create(
+//   {
+//     countryName: "Singapore",
+//    thread: {["Sentosa", "Marina Bay Sands"]}
+//   },
+//   {
+//     countryName: "Malaysia",
+//   },
+//   {
+//     countryName: "Indonesia",
+//   }
+// );
 
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}`);

@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
 
 // searching by country (singapore)
 router.get("/:country", async (req, res) => {
+  console.log(req.params.country);
   res.json(req.params.country);
 });
 
@@ -44,7 +45,12 @@ router.post(
 router.get(
   "/:country/:searchTopics/:searchTreads/:searchPost",
   async (req, res) => {
-    res.json(req.params.searchPost);
+    try {
+      const findPosts = await Topics.find({});
+      res.json(findPosts);
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
@@ -73,7 +79,13 @@ router.put(
       const updatePost = await Topics.updateOne(
         { _id: req.params.searchPost },
         {
-          content: { type: String, required: [true, "cannot be blank"] },
+          title: req.body.title,
+          date: req.body.date,
+          content: req.body.content,
+          typeOfPost: req.body.typeOfPost,
+          categories: req.body.categories,
+          country: req.body.country,
+          postId: req.body.postId,
         }
       );
       console.log(updatePost);
