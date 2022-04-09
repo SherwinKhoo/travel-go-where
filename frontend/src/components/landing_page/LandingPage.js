@@ -6,6 +6,11 @@ import landingPageBackgroundImage from "../images/background2.jpeg";
 
 const LandingPage = () => {
   const [showCards, setShowCards] = useState(false);
+  const [country, setCountry] = useState("");
+
+  const handleSubmit = (event) => {
+    setCountry(event.target.value);
+  };
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -31,6 +36,7 @@ const LandingPage = () => {
             type="text"
             className="landingPageSearch"
             placeholder="Freedom awaits..."
+            onSubmit={handleSubmit}
           />
         </div>
         <h6 className="landingPageCannotDecide" onClick={handleClick}>
