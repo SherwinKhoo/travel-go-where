@@ -4,6 +4,7 @@
 
 html {
   font-family: "Carme", sans-serif;
+  height: 100%;
 }
 
 h1 {
@@ -12,7 +13,9 @@ h1 {
 
 body {
   margin: 0;
+  padding: 0;
   background-color: whitesmoke;
+  height: 100%;
 }
 
 .centered {
@@ -21,4 +24,63 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* LANDING PAGE STUFF */
+
+.landingPageBackgroundImage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.landingPageTitle {
+  text-align: center;
+  font-weight: 750;
+  text-shadow: 2px 2px 2px black;
+  color: white;
+}
+
+form {
+  position: absolute;
+  top: 37.5%;
+  margin: auto 25%;
+  padding: auto;
+}
+
+.landingPageSearch {
+  border: 1px solid darkgrey;
+  border-radius: 20px;
+  width: 50vw;
+  margin: auto;
+  text-align: center;
+}
+
+.landingPageCannotDecide {
+  text-align: right;
+  font-size: 15px;
+  color: white;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.landingPageCards {
+  position: absolute;
+  margin: auto;
+  bottom: 45%;
+}
+
+/* LANDING PAGE CARDS STUFF */
+
+.landingPageCard1,
+.landingPageCard2,
+.landingPageCard3 {
+  width: 200px;
+  height: 120px;
+  object-fit: cover;
+
+  margin: 25px;
+  z-index: 1;
 }

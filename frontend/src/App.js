@@ -1,11 +1,12 @@
 import React, { Suspense } from "react";
 import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
+import LandingPage from "./components/landing_page/LandingPage";
 
 const App = () => {
   return (
-    <div>
-      <h2>Project 3</h2>
-    </div>
+    <>
+      <LandingPage />
+    </>
   );
 };
 
