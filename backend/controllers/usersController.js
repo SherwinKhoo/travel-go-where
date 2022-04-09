@@ -11,10 +11,14 @@ const usernameOrPasswordError = {
 
 router.post("/new", async (req, res) => {
   try {
+    console.log(req.body);
     req.body.password = await bcrypt.hash(req.body.password, 10);
-    const createdUser = await Users.create(req.body);
+    console.log(req.body.password);
+    const createdUser = new Users(req.body);
+    const savedUser = await createdUser.save();
+    console.log(savedUser);
 
-    console.log("created user is:", createdUser);
+    // console.log("created user is:", createdUser);
     res.json({ status: "ok", message: "user created" });
   } catch (error) {
     console.log(error);

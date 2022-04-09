@@ -11,6 +11,10 @@ const topicsSchema = Schema(
     country: { type: String, required: true },
     postId: { type: Number, min: 1 },
     edited: { type: Boolean, required: false },
+    // author: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "users",
+    // },
   },
   { timestamps: true }
 );
