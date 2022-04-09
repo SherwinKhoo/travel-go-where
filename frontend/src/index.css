@@ -41,6 +41,7 @@ body {
   font-weight: 750;
   text-shadow: 2px 2px 2px black;
   color: white;
+  font-size: 8vh;
 }
 
 form {
@@ -56,6 +57,7 @@ form {
   width: 50vw;
   margin: auto;
   text-align: center;
+  font-size: 3vh;
 }
 
 .landingPageCannotDecide {
@@ -67,9 +69,11 @@ form {
 }
 
 .landingPageCards {
-  position: absolute;
   margin: auto;
-  bottom: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /* LANDING PAGE CARDS STUFF */
@@ -77,10 +81,69 @@ form {
 .landingPageCard1,
 .landingPageCard2,
 .landingPageCard3 {
-  width: 200px;
-  height: 120px;
+  border-radius: 25px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  margin: 25px;
   z-index: 1;
+}
+
+/* .landingPageCard1:hover,
+.landingPageCard2:hover,
+.landingPageCard3:hover {
+  transform: scale(1.2);
+  border-radius: 25px;
+  box-shadow: 0px 20px 20px black;
+} */
+
+.landingPageCardCountry {
+  margin-top: 10%;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 25%;
+  height: 25vh;
+  perspective: 1000px;
+  margin: 20px;
+  border-radius: 25px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  border-radius: 25px;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 25px;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 25px;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 25px;
 }

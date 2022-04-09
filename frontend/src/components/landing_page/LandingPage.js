@@ -9,14 +9,14 @@ const LandingPage = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    setShowCards(true);
+    showCards ? setShowCards(false) : setShowCards(true);
   };
 
   return (
     <div className="landingPage">
       <img
         src={landingPageBackgroundImage}
-        className="landingPageBackgroundImage landingPageParallex"
+        className="landingPageBackgroundImage"
         // style={{
         //   position: "absolute",
         //   width: `100%`,
@@ -36,10 +36,10 @@ const LandingPage = () => {
         <h6 className="landingPageCannotDecide" onClick={handleClick}>
           Cannot decide?
         </h6>
+        <div className="landingPageCards">
+          {showCards ? <LandingPageCards /> : null}
+        </div>
       </form>
-      <div className="landingPageCards">
-        {showCards ? <LandingPageCards /> : null}
-      </div>
     </div>
   );
 };
