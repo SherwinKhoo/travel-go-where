@@ -54,7 +54,9 @@ router.get(
   "/:country/:searchTopics/:searchTreads/:searchPost",
   async (req, res) => {
     try {
-      const findPosts = await Topics.find({});
+      const findPosts = await Topics.find({
+        categories: req.params.searchPost,
+      });
       res.json(findPosts);
     } catch (error) {
       console.log(error);
