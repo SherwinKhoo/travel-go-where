@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const IndividualPost = (props) => {
   const [onePost, setOnePost] = useState(["1"]);
@@ -17,11 +17,15 @@ const IndividualPost = (props) => {
     console.log(onePost);
   };
 
+  useEffect(() => {
+    post();
+  }, []);
+
   return (
     <>
       {onePost !== ["1"] ? (
         <div className="container">
-          <h5 onClick={post}>#{onePost.postId}</h5>
+          <h5>#{onePost.postId}</h5>
           <h2>{onePost.title}</h2>
           <h5>{onePost.date}</h5>
           <h5>{onePost.content}</h5>
