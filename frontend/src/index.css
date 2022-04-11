@@ -148,9 +148,32 @@ form {
   border-radius: 25px;
 }
 
+/* LOGIN FORM STUFF */
+
 .loginForm {
   position: absolute;
   top: 5%;
   right: 5%;
   width: 20vh;
+}
+
+/* MAIN THREAD STUFF */
+
+.mainThread {
+  position: absolute;
+  top: 20%;
+}
+
+.mainThreadBody {
+  margin: 1vh;
+  padding: 1vh;
+  border: 1px solid black;
+}
+
+.mainThreadWelcome,
+.mainThreadPopular,
+.mainThreadGeneral {
+  margin: 1vh;
+  padding: 1vh;
+  border: 1px solid black;
 }
