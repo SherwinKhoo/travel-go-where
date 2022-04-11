@@ -21,7 +21,15 @@ router.get("/:country/:searchTopics", async (req, res) => {
 
 // on clicking into one particular thread (aquarium)
 router.get("/:country/:searchTopics/:searchThreads", async (req, res) => {
-  res.json(req.params.searchThreads);
+  try {
+    const findPost = await Topics.find({
+      categories: req.params.searchThreads,
+    });
+    res.json(findPost);
+  } catch (error) {
+    console.log(error);
+    res.json("error");
+  }
 });
 
 // creating new post in the country's thread (posting inside aquarium eg, aquarium hacks)

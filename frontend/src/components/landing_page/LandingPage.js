@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LandingPageCards from "./LandingPageCards";
 import landingPageBackgroundImage from "../images/background2.jpeg";
 
