@@ -8,7 +8,7 @@ const IndividualPost = (props) => {
       method: "GET",
     };
 
-    const url = `http://127.0.0.1:5001/topics/topics/Singapore/welcomecenter/rules/`;
+    const url = `http://127.0.0.1:5001/topics/Singapore/0/`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
 

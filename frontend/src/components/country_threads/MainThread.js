@@ -6,7 +6,7 @@ const MainThread = (props) => {
   const [topic, setTopic] = useState("");
   const [searchCountry, setSearchCountry] = useState(props.searchCountry);
   const [click, setClicked] = useState(false);
-  const [hello, setHello] = useState(["1"]);
+  const [postTitle, setpostTitle] = useState(["1"]);
 
   let navigate = useNavigate();
 
@@ -16,12 +16,21 @@ const MainThread = (props) => {
     };
 
     // const url = `http://127.0.0.1:5001/topics/topics/${props.searchCountry}/welcomecenter/${topic}`;
-    const url = `http://127.0.0.1:5001/topics/topics/singapore/welcomecenter/rules`;
+    const url = `http://127.0.0.1:5001/topics/Singapore/0`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
+
+    const mapTitle = data.map((title) => {
+      return (
+        <>
+          <button>{title.title}</button>
+        </>
+      );
+    });
+
     console.log(data);
     console.log(data[0].title);
-    setHello(data[0].title);
+    setpostTitle(mapTitle);
   };
 
   useEffect(() => {
@@ -61,9 +70,10 @@ const MainThread = (props) => {
             ) : (
               <li onClick={handleSubmitToTopics}>{hello[0]}</li>
             )} */}
-            {hello !== ["1"] ? (
-              <button onClick={handleSubmitToTopics}>{hello}</button>
-            ) : null}
+            {/* {postTitle !== ["1"] ? (
+              <button onClick={handleSubmitToTopics}>{postTitle}</button>
+            ) : null} */}
+            {postTitle}
             <IndividualPost />
           </div>
           <div className="mainThreadPopular">
