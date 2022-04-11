@@ -9,12 +9,28 @@ const LandingPage = () => {
   const [country, setCountry] = useState("");
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+    searchBar();
+  };
+
+  const handleInputChange = (event) => {
     setCountry(event.target.value);
   };
 
   const handleClick = (event) => {
     event.preventDefault();
     showCards ? setShowCards(false) : setShowCards(true);
+  };
+
+  const searchBar = async () => {
+    const url = `http://127.0.0.1:27017/topics/${country}`;
+    console.log(country);
+    console.log(url);
+    const response = await fetch(url, {
+      method: "GET",
+    });
+    const data = await response.json();
+    console.log(data);
   };
 
   return (
@@ -29,14 +45,14 @@ const LandingPage = () => {
         //   objectFit: "cover",
         // }}
       />
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1 className="landingPageTitle">TRAVEL GO WHERE</h1>
         <div className="row">
           <input
             type="text"
             className="landingPageSearch"
             placeholder="Freedom awaits..."
-            onSubmit={handleSubmit}
+            onChange={handleInputChange}
           />
         </div>
         <h6 className="landingPageCannotDecide" onClick={handleClick}>
