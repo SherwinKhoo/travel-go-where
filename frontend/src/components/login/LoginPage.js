@@ -20,15 +20,28 @@ const LoginPage = (props) => {
     });
   };
 
+  const registerUser = async () => {
+    await fetch(`http://127.0.0.1:5001/users/new`, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    });
+  };
+
   const handleLoginClick = (event) => {
     event.preventDefault();
     loginUser();
-    // setLogin(true); // terrible way to determine login status, use as last resort
   };
 
   const handleRegisterClick = (event) => {
     event.preventDefault();
-    // registerUser();
+    registerUser();
   };
 
   const handleUserChange = (event) => {
@@ -41,7 +54,7 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <form className="container loginForm" /* onSubmit={handleLoginClick} */>
+      <form className="container loginForm" onSubmit={handleLoginClick}>
         <div className="row">
           <input
             className="login"
