@@ -26,6 +26,11 @@ const LoginPage = (props) => {
     // setLogin(true); // terrible way to determine login status, use as last resort
   };
 
+  const handleRegisterClick = (event) => {
+    event.preventDefault();
+    // registerUser();
+  };
+
   const handleUserChange = (event) => {
     setUsername(event.target.value);
   };
@@ -58,9 +63,15 @@ const LoginPage = (props) => {
           />
         </div>
         <div className="row">
-          <div className="col-md-6"></div>
           <button
-            type="submit"
+            type="button"
+            className="col-md-6 btn btnRegister"
+            onClick={handleRegisterClick}
+          >
+            Register
+          </button>
+          <button
+            type="button"
             className="col-md-6 btn btnLogin"
             onClick={handleLoginClick}
           >
