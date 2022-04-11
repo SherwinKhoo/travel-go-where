@@ -147,3 +147,10 @@ form {
   transform: rotateY(180deg);
   border-radius: 25px;
 }
+
+.loginForm {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 20vh;
+}
