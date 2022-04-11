@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const MainThread = (props) => {
   const [topic, setTopic] = useState("");
   const [searchCountry, setSearchCountry] = useState(props.searchCountry);
-  const [click, setClicked] = useState(false);
+//   const [click, setClicked] = useState(false);
   const [postTitle, setpostTitle] = useState(["1"]);
 
   let navigate = useNavigate();
@@ -29,7 +29,7 @@ const MainThread = (props) => {
     });
 
     console.log(data);
-    console.log(data[0].title);
+    // console.log(data[0].title);
     setpostTitle(mapTitle);
   };
 
@@ -39,9 +39,9 @@ const MainThread = (props) => {
 
   const handleSubmitToTopics = (event) => {
     // console.log(event.target.innerText);
-    enterTopics();
+    // enterTopics();
     setTopic(event.target.innerText);
-    setClicked(true);
+    // setClicked(true);
   };
 
   // map through

@@ -27,7 +27,7 @@ router.get("/:country/:searchTopics", async (req, res) => {
         {
           country: req.params.country,
         },
-        { typeOfPost: req.params.searchThreads },
+        { typeOfPost: req.params.searchTopics },
       ],
     });
     res.json(findPost);
