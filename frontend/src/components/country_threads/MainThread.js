@@ -8,10 +8,10 @@ const MainThread = (props) => {
       method: "GET",
     };
 
-    const url = `http://127.0.0.1:5001/topics/${props.country}/${topic}`;
+    const url = `http://127.0.0.1:5001/topics/${props.searchCountry}/${topic}`;
     const response = await fetch(url, requestOptions);
     const data = response.json();
-    console.log(data);
+    // console.log(data);
   };
 
   const handleSubmitToTopics = (event) => {

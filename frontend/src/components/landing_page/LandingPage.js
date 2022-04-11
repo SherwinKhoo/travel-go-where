@@ -3,15 +3,11 @@ import { useNavigate, NavLink } from "react-router-dom";
 import LandingPageCards from "./LandingPageCards";
 import landingPageBackgroundImage from "../images/background2.jpeg";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   const [showCards, setShowCards] = useState(false);
   const [country, setCountry] = useState("");
-  let navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    searchBar();
-  };
+  let navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setCountry(event.target.value);
@@ -28,10 +24,19 @@ const LandingPage = () => {
     console.log(url);
     const response = await fetch(url, {
       method: "GET",
+      mode: "no-cors",
     });
-    const data = await response.json();
-    console.log(data);
-    <NavLink to="/Singapore" />;
+    console.log(response);
+    props.setSearchCountry(country);
+    // const data = await response.json();
+    // console.log(data);
+    // <NavLink to="/Singapore" />;
+    navigate(`/${country}`);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    searchBar();
   };
 
   return (
