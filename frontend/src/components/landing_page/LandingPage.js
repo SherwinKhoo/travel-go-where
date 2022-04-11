@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-
+import { useNavigate, NavLink } from "react-router-dom";
 import LandingPageCards from "./LandingPageCards";
-
 import landingPageBackgroundImage from "../images/background2.jpeg";
 
 const LandingPage = () => {
   const [showCards, setShowCards] = useState(false);
   const [country, setCountry] = useState("");
+  let navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +31,7 @@ const LandingPage = () => {
     });
     const data = await response.json();
     console.log(data);
+    <NavLink to="/Singapore" />;
   };
 
   return (
@@ -61,6 +62,9 @@ const LandingPage = () => {
         <div className="landingPageCards">
           {showCards ? <LandingPageCards /> : null}
         </div>
+        {/* <NavLink to="/Singapore">
+          <button>Enter Singapore</button>
+        </NavLink> */}
       </form>
     </div>
   );
