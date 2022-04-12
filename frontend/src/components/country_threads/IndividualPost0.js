@@ -17,7 +17,7 @@ const IndividualPost0 = (props) => {
 
   const deletePost = async (id) => {
     const res = await fetch(
-      `http:127.0.0.1:5001/topics/Singapore/0/${id}/delete`,
+      `http://127.0.0.1:5001/topics/Singapore/0/${id}/delete`,
       {
         method: "delete",
         headers: {
