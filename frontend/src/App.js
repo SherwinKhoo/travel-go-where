@@ -4,6 +4,7 @@ import LandingPage from "./components/landing_page/LandingPage";
 import MainThread from "./components/country_threads/MainThread";
 // import PopularPlaces from "./components/country_threads/PopularPlaces";
 import LoginPage from "./components/login/LoginPage";
+import CreatePost from "./components/post/createPost";
 
 import IndividualPost0 from "./components/country_threads/IndividualPost0";
 import IndividualPost1 from "./components/country_threads/IndividualPost1";

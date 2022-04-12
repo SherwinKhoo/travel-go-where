@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const createPost = (props) => {
+const CreatePost = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [categories, setCategories] = useState("");
@@ -35,7 +35,7 @@ const createPost = (props) => {
 
   return (
     <div>
-      <form>
+      <form onSubmit={newPost}>
         <label>Title:</label>
         <input placeholder="enter a post title" onChange={handleTitle} />
         <label>Content:</label>
@@ -43,7 +43,7 @@ const createPost = (props) => {
         <label>Categories:</label>
         <input placeholder="fill in categories" onChange={handleCategories} />
 
-        <button onClick={newPost}>Submit</button>
+        <button>Submit</button>
 
         <div className="container individualPostContainer">
           <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
@@ -64,7 +64,7 @@ const createPost = (props) => {
   );
 };
 
-export default createPost;
+export default CreatePost;
 
 /* <Link>
 <IndividualPost
