@@ -80,7 +80,7 @@ const App = () => {
                   }
                 ></Route>
                 <Route
-                  path={"/topics/Singapore/0/newPost"}
+                  path={"/Singapore/0/newPost"}
                   element={
                     <CreatePost
                       title={title}

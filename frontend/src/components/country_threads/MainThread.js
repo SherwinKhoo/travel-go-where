@@ -17,7 +17,7 @@ const MainThread = (props) => {
   const [postTitle1, setpostTitle1] = useState(["1"]);
   const [postTitle2, setpostTitle2] = useState(["2"]);
 
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
   // const handleSubmitToTopics = (event) => {
   //   props.setTopic(event.target.innerText);
@@ -108,15 +108,20 @@ const MainThread = (props) => {
     };
   }, []);
 
-  console.log(postTitle0);
-  console.log(postTitle1);
-  console.log(postTitle2);
+  const handleAdd = (event) => {
+    event.preventDefault();
+    navigate("/Singapore/0/newPost");
+  };
+
   return (
     <>
       <div className="container mainThread">
         <div className="row mainThreadHead">
           <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
-          <div className="col-md-4"></div>
+          <button
+            onClick={handleAdd}
+            className="col-md-4 btn mainThreadAdd"
+          ></button>
           <input
             className="mainThreadSearchBar col-md-4"
             type="text"
