@@ -6,10 +6,21 @@ const IndividualPost2 = (props) => {
   console.log(props.value.results2[params.index]);
   const displayPost = props.value.results2[params.index];
 
+  const tags = displayPost.categories.map((list, index) => {
+    return (
+      <>
+        <li className="individualPostTags">{list}</li>
+      </>
+    );
+  });
   return (
     <>
-      <h1>{displayPost.title}</h1>
-      <p>{displayPost.content}</p>
+      <div className="container individualPostContainer">
+        <h5 className="individualPostId">#{displayPost.postId}</h5>
+        <h1>{displayPost.title}</h1>
+        <h5>{displayPost.content}</h5>
+        <ul>{tags}</ul>
+      </div>
     </>
   );
 };
