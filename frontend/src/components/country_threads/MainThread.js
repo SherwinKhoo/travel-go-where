@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useContext } from "react";
-import IndividualPost from "./IndividualPost";
+import IndividualPost0 from "./IndividualPost0";
 
 import { useNavigate, NavLink, Link } from "react-router-dom";
-import resultsContext from "../context/resultsContext";
+import resultsContext0 from "../context/resultsContext0";
+import resultsContext1 from "../context/resultsContext1";
+import resultsContext2 from "../context/resultsContext2";
 
 const MainThread = (props) => {
-  const resultsCtx = useContext(resultsContext);
+  const resultsCtx0 = useContext(resultsContext0);
+  const resultsCtx1 = useContext(resultsContext1);
+  const resultsCtx2 = useContext(resultsContext2);
 
   const [searchCountry, setSearchCountry] = useState(props.searchCountry);
 
-  const [postTitle, setpostTitle] = useState(["1"]);
+  const [postTitle0, setpostTitle0] = useState(["1"]);
+  const [postTitle1, setpostTitle1] = useState(["1"]);
+  const [postTitle2, setpostTitle2] = useState(["1"]);
 
   let navigate = useNavigate();
 
@@ -19,7 +25,7 @@ const MainThread = (props) => {
   };
 
   console.log(props.topic);
-  const enterTopics = async () => {
+  const enterTopics0 = async () => {
     const requestOptions = {
       method: "GET",
     };
@@ -28,7 +34,7 @@ const MainThread = (props) => {
     const url = `http://127.0.0.1:5001/topics/Singapore/0`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
-    resultsCtx.setResults(data);
+    resultsCtx0.setResults0(data);
     const mapTitle = data.map((posts, index) => {
       return (
         <>
@@ -40,11 +46,61 @@ const MainThread = (props) => {
 
     console.log(data);
     // console.log(data[0].title);
-    setpostTitle(mapTitle);
+    setpostTitle0(mapTitle);
+  };
+
+  const enterTopics1 = async () => {
+    const requestOptions = {
+      method: "GET",
+    };
+
+    // const url = `http://127.0.0.1:5001/topics/topics/${props.searchCountry}/welcomecenter/${topic}`;
+    const url = `http://127.0.0.1:5001/topics/Singapore/1`;
+    const response = await fetch(url, requestOptions);
+    const data = await response.json();
+    resultsCtx1.setResults1(data);
+    const mapTitle = data.map((posts, index) => {
+      return (
+        <>
+          <Link to={`/Singapore/1/${posts.title}/${index}`}>{posts.title}</Link>
+          <br />
+        </>
+      );
+    });
+
+    console.log(data);
+    // console.log(data[0].title);
+    setpostTitle1(mapTitle);
+  };
+
+  const enterTopics2 = async () => {
+    const requestOptions = {
+      method: "GET",
+    };
+
+    // const url = `http://127.0.0.1:5001/topics/topics/${props.searchCountry}/welcomecenter/${topic}`;
+    const url = `http://127.0.0.1:5001/topics/Singapore/2`;
+    const response = await fetch(url, requestOptions);
+    const data = await response.json();
+    resultsCtx2.setResults2(data);
+    const mapTitle = data.map((posts, index) => {
+      return (
+        <>
+          <Link to={`/Singapore/2/${posts.title}/${index}`}>{posts.title}</Link>
+          <br />
+        </>
+      );
+    });
+
+    console.log(data);
+    // console.log(data[0].title);
+    setpostTitle2(mapTitle);
   };
 
   useEffect(() => {
-    enterTopics();
+    enterTopics0();
+    enterTopics1();
+    enterTopics2();
     const controller = new AbortController();
     return () => {
       console.log("cleanup");
@@ -52,7 +108,9 @@ const MainThread = (props) => {
     };
   }, []);
 
-  console.log(postTitle);
+  console.log(postTitle0);
+  console.log(postTitle1);
+  console.log(postTitle2);
   return (
     <>
       <div className="container mainThread">
@@ -68,17 +126,19 @@ const MainThread = (props) => {
         <div className="mainThreadBody">
           <div className="mainThreadWelcome">
             <h5>Welcome Center</h5>
-            {postTitle}
+            {postTitle0}
           </div>
           <div className="mainThreadPopular">
-            <NavLink to={`/${props.searchCountry}/1`}>
-              <h5>Popular Places to Go</h5>
-            </NavLink>
+            {/* <NavLink to={`/${props.searchCountry}/1`}> */}
+            <h5>Popular Places to Go</h5>
+            {postTitle1}
+            {/* </NavLink> */}
           </div>
           <div className="mainThreadGeneral">
-            <NavLink to={`/${props.searchCountry}/2`}>
-              <h5>General Discussions</h5>
-            </NavLink>
+            {/* <NavLink to={`/${props.searchCountry}/2`}> */}
+            <h5>General Discussions</h5>
+            {postTitle2}
+            {/* </NavLink> */}
           </div>
         </div>
       </div>
