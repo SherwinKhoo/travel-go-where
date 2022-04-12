@@ -76,51 +76,19 @@ const IndividualPost2 = (props) => {
   return (
     <>
       <div className="container individualPostContainer">
-        <div className="individualPostHead">
-          <h1>{displayPost.title}</h1>
-        </div>
-        {edit ? (
-          <div className="individualPostForm">
-            <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
-            <input
-              onChange={handleContentChange}
-              defaultValue={displayPost.content}
-            ></input>
-            <ul>
-              <li className="individualPostTags">edited</li>
-              {tags}
-            </ul>
-            <div className="col-md-1"></div>
-            <button
-              type="submit"
-              className="col-md-1 btn individualPostSubmit"
-              value={displayPost._id}
-              onClick={handleSubmitClick}
-            >
-              Submit
-            </button>
-          </div>
-        ) : (
-          <div className="individualPostPost">
-            <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
-            <h5>{displayPost.content}</h5>
-            <ul>{tags}</ul>
-            <button
-              onClick={handleEditClick}
-              onChange={handleContentChange}
-              className="col-md-1 btn individualPostEdit"
-            >
-              Edit
-            </button>
-            <button
-              className="col-md-1 btn individualPostDelete"
-              // value={displayPost._id}
-              onClick={handleDeleteClick}
-            >
-              Delete
-            </button>
-          </div>
-        )}
+        <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
+        <h1>{displayPost.title}</h1>
+        <h5>{displayPost.content}</h5>
+        <ul>{tags}</ul>
+        <p>{displayPost.author}</p>
+        <button className="col-md-1 btn individualPostEdit">Edit</button>
+        <button
+          className="col-md-1 btn individualPostDelete"
+          // value={displayPost._id}
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
       </div>
     </>
   );

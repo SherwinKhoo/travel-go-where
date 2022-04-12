@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const Topics = require("../models/TopicsModel");
+const Users = require("../models/UsersModel");
 
 //landing page
 router.get("/", async (req, res) => {
@@ -58,10 +59,19 @@ router.get("/:country/:searchTopics/:searchThreads", async (req, res) => {
 // creating new post in the country's thread (posting inside aquarium eg, aquarium hacks)
 // singapore/sentosa/aquarium/newPost
 router.post("/:country/:searchTreads/newPost", async (req, res) => {
+  console.log(req.body);
   try {
-    const newTopic = await Topics.create(req.body);
-    console.log(newTopic);
-    res.json(newTopic);
+    const findAuthor = await Users.findOne({ username: req.body.author });
+    console.log(findAuthor);
+    req.body.author = findAuthor._id;
+    let newTopic = await Topics.create(req.body);
+    // reassigning value
+    const name = await Users.findById(newTopic.author);
+    console.log(name.username);
+    // newTopic.author = name.username;
+    // await newTopic.save();
+    console.log(newTopic, name.username);
+    res.json(newTopic, name.username);
   } catch (error) {
     console.log(error);
     res.json("error");
@@ -83,6 +93,7 @@ router.get("/:country/:searchTreads/:searchPost", async (req, res) => {
 
 // posting something in aquarium hacks OR replying to a post in aquarium hacks
 // singapore/sentosa/aquarium/aquarium-hacks/newPost
+// dont use this
 router.post("/:country/:searchTreads/:searchPost/newPost", async (req, res) => {
   try {
     const newPost = await Topics.create(req.body);

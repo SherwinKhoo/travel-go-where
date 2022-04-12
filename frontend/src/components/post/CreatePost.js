@@ -16,6 +16,7 @@ const CreatePost = (props) => {
       typeOfPost: 2,
       categories: categories,
       country: "Singapore",
+      author: props.user,
     }),
   };
 
