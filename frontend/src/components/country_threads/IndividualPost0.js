@@ -59,6 +59,7 @@ const IndividualPost0 = (props) => {
   };
 
   const handleDeleteClick = (event) => {
+    event.preventDefault();
     deletePost(displayPost._id);
     navigate("/Singapore");
   };
@@ -71,6 +72,11 @@ const IndividualPost0 = (props) => {
     event.preventDefault();
     editPost(displayPost._id);
     navigate(`/Singapore`);
+  };
+
+  const handleCancelClick = (event) => {
+    event.preventDefault();
+    setEdit(false);
   };
 
   return (
@@ -98,6 +104,13 @@ const IndividualPost0 = (props) => {
               onClick={handleSubmitClick}
             >
               Submit
+            </button>
+            <button
+              type="buttton"
+              className="col-md-1 btn individualPostCancel"
+              onClick={handleCancelClick}
+            >
+              Cancel
             </button>
           </div>
         ) : (
