@@ -45,7 +45,7 @@ const CreatePost = (props) => {
 
         <button>Submit</button>
 
-        <div className="container individualPostContainer">
+        {/* <div className="container individualPostContainer">
           <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
           <h1>{displayPost.title}</h1>
           <h5>{displayPost.content}</h5>
@@ -58,7 +58,7 @@ const CreatePost = (props) => {
           >
             Delete
           </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );
