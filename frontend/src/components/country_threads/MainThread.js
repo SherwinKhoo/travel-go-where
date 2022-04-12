@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import IndividualPost from "./IndividualPost";
-import PopularPlaces from "./PopularPlaces";
+
 import { useNavigate, NavLink, Link } from "react-router-dom";
 import resultsContext from "../context/resultsContext";
 
@@ -69,7 +69,6 @@ const MainThread = (props) => {
           <div className="mainThreadWelcome">
             <h5>Welcome Center</h5>
             {postTitle}
-
           </div>
           <div className="mainThreadPopular">
             <NavLink to={`/${props.searchCountry}/1`}>
