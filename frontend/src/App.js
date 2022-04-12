@@ -84,9 +84,9 @@ const App = () => {
                   path={"/Singapore/0/newPost"}
                   element={
                     <CreatePost
-                      // title={title}
-                      // categories={categories}
-                      // content={content}
+                    // title={title}
+                    // categories={categories}
+                    // content={content}
                     />
                   }
                 />

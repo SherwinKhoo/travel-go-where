@@ -106,7 +106,7 @@ const MainThread = (props) => {
       console.log("cleanup");
       controller.abort();
     };
-  }, []);
+  }, [postTitle0]);
 
   const handleAdd = (event) => {
     event.preventDefault();

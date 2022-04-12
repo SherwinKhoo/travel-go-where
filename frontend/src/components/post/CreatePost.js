@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [categories, setCategories] = useState("");
+  let navigate = useNavigate();
 
   const requestOptions = {
     method: "POST",
@@ -11,14 +13,23 @@ const CreatePost = (props) => {
     body: JSON.stringify({
       title: title,
       content: content,
+      typeOfPost: 2,
       categories: categories,
+      country: "Singapore",
     }),
   };
 
   const newPost = async () => {
-    const url = `http://127.0.0.1/topics/Singapore/0/newPost`;
+    const url = `http://127.0.0.1:5001/topics/Singapore/0/newPost`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
+    console.log(data);
+  };
+
+  const handleNewPost = (event) => {
+    event.preventDefault();
+    newPost();
+    navigate("/Singapore");
   };
 
   const handleTitle = (event) => {
@@ -35,7 +46,7 @@ const CreatePost = (props) => {
 
   return (
     <div>
-      <form onSubmit={newPost}>
+      <form onSubmit={handleNewPost}>
         <label>Title:</label>
         <input placeholder="enter a post title" onChange={handleTitle} />
         <label>Content:</label>
