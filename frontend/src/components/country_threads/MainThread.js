@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import IndividualPost0 from "./IndividualPost0";
+// import IndividualPost0 from "./IndividualPost0";
 
 import { useNavigate, NavLink, Link } from "react-router-dom";
 import resultsContext0 from "../context/resultsContext0";
@@ -11,18 +11,18 @@ const MainThread = (props) => {
   const resultsCtx1 = useContext(resultsContext1);
   const resultsCtx2 = useContext(resultsContext2);
 
-  const [searchCountry, setSearchCountry] = useState(props.searchCountry);
+  // const [searchCountry, setSearchCountry] = useState(props.searchCountry);
 
   const [postTitle0, setpostTitle0] = useState(["0"]);
   const [postTitle1, setpostTitle1] = useState(["1"]);
   const [postTitle2, setpostTitle2] = useState(["2"]);
 
-  let navigate = useNavigate();
+  // let navigate = useNavigate();
 
-  const handleSubmitToTopics = (event) => {
-    props.setTopic(event.target.innerText);
-    navigate(`/${props.searchCountry}/0/${event.target.innerHTML}`);
-  };
+  // const handleSubmitToTopics = (event) => {
+  //   props.setTopic(event.target.innerText);
+  //   navigate(`/${props.searchCountry}/0/${event.target.innerHTML}`);
+  // };
 
   console.log(props.topic);
   const enterTopics0 = async () => {
