@@ -8,7 +8,7 @@ const MainThread = (props) => {
   //   const [click, setClicked] = useState(false);
   const [postTitle, setpostTitle] = useState(["1"]);
 
-  const [showPost, setShowPost] = useState(true);
+  const [showPost, setShowPost] = useState(false);
   const [onePost, setOnePost] = useState("");
 
   let navigate = useNavigate();
@@ -57,7 +57,7 @@ const MainThread = (props) => {
 
     setOnePost(data[0]);
     console.log(data[0]);
-    setShowPost(false);
+    setShowPost(true);
   };
   console.log(onePost);
   console.log(showPost);
@@ -107,7 +107,14 @@ const MainThread = (props) => {
               <button onClick={handleSubmitToTopics}>{postTitle}</button>
             ) : null} */}
             <ul>{postTitle}</ul>
-            {showPost ? renderOnePost : "do not show post"}
+            {showPost ? (
+              <>
+                <h5>{onePost.title}</h5>
+                <h5>{onePost.content}</h5>
+              </>
+            ) : (
+              "do not show post"
+            )}
           </div>
           <div className="mainThreadPopular">
             <h5>Popular Places to Go</h5>
