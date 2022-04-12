@@ -118,10 +118,9 @@ const MainThread = (props) => {
       <div className="container mainThread">
         <div className="row mainThreadHead">
           <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
-          <button
-            onClick={handleAdd}
-            className="col-md-4 btn mainThreadAdd"
-          ></button>
+          <button onClick={handleAdd} className="col-md-4 btn mainThreadAdd">
+            Add New Post
+          </button>
           <input
             className="mainThreadSearchBar col-md-4"
             type="text"
