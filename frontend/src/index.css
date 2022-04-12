@@ -177,3 +177,28 @@ form {
   padding: 1vh;
   border: 1px solid black;
 }
+
+/* INDIVIDUAL POST STUFF */
+
+.individualPostContainer {
+  position: absolute;
+  top: 15vh;
+  margin: 0vh 2vh 0vh 5vh;
+}
+
+.individualPostForm,
+.individualPostPost {
+  position: relative;
+  border: 1px solid black;
+  padding: 1vh;
+  width: 100%;
+}
+
+.individualPostHead {
+  width: 100%;
+}
+
+.individualPostTags {
+  display: inline;
+  margin: 1vh;
+}

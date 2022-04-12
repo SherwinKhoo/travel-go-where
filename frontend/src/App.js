@@ -20,11 +20,10 @@ const App = () => {
   const [results0, setResults0] = useState([]);
   const [results1, setResults1] = useState([]);
   const [results2, setResults2] = useState([]);
-  const [user, setUser] = useState("");
 
   return (
     <>
-      <LoginPage user={user} setUser={setUser} />
+      <LoginPage />
       <resultsContext0.Provider value={{ results0, setResults0 }}>
         <resultsContext1.Provider value={{ results1, setResults1 }}>
           <resultsContext2.Provider value={{ results2, setResults2 }}>
@@ -85,10 +84,9 @@ const App = () => {
                   path={"/Singapore/0/newPost"}
                   element={
                     <CreatePost
-                      user={user}
-                      // title={title}
-                      // categories={categories}
-                      // content={content}
+                    // title={title}
+                    // categories={categories}
+                    // content={content}
                     />
                   }
                 />
