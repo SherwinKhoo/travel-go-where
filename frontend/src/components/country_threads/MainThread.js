@@ -97,16 +97,21 @@ const MainThread = (props) => {
     setpostTitle2(mapTitle);
   };
 
-  useEffect(() => {
-    enterTopics0();
-    enterTopics1();
-    enterTopics2();
-    const controller = new AbortController();
-    return () => {
-      console.log("cleanup");
-      controller.abort();
-    };
-  }, [postTitle0]);
+  useEffect(
+    () => {
+      enterTopics0();
+      enterTopics1();
+      enterTopics2();
+      const controller = new AbortController();
+      return () => {
+        console.log("cleanup");
+        controller.abort();
+      };
+    },
+    [
+      /*postTitle0*/
+    ]
+  );
 
   const handleAdd = (event) => {
     event.preventDefault();
