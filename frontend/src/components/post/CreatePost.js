@@ -13,10 +13,11 @@ const CreatePost = (props) => {
     body: JSON.stringify({
       title: title,
       content: content,
-      typeOfPost: 2,
+      typeOfPost: 1,
       categories: categories,
       country: "Singapore",
       author: props.user,
+      username: props.user,
     }),
   };
 

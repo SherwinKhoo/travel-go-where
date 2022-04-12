@@ -71,7 +71,7 @@ router.post("/:country/:searchTreads/newPost", async (req, res) => {
     // newTopic.author = name.username;
     // await newTopic.save();
     console.log(newTopic, name.username);
-    res.json(newTopic, name.username);
+    res.json(newTopic);
   } catch (error) {
     console.log(error);
     res.json("error");
