@@ -13,9 +13,9 @@ const MainThread = (props) => {
 
   const [searchCountry, setSearchCountry] = useState(props.searchCountry);
 
-  const [postTitle0, setpostTitle0] = useState(["1"]);
+  const [postTitle0, setpostTitle0] = useState(["0"]);
   const [postTitle1, setpostTitle1] = useState(["1"]);
-  const [postTitle2, setpostTitle2] = useState(["1"]);
+  const [postTitle2, setpostTitle2] = useState(["2"]);
 
   let navigate = useNavigate();
 
