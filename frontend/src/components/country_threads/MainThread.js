@@ -1,15 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import IndividualPost from "./IndividualPost";
-import { useNavigate } from "react-router-dom";
+import PopularPlaces from "./PopularPlaces";
+import { useNavigate, NavLink, Link } from "react-router-dom";
+import resultsContext from "../context/resultsContext";
 
 const MainThread = (props) => {
-  const [topic, setTopic] = useState("");
+  const resultsCtx = useContext(resultsContext);
+
   const [searchCountry, setSearchCountry] = useState(props.searchCountry);
-//   const [click, setClicked] = useState(false);
+
   const [postTitle, setpostTitle] = useState(["1"]);
 
   let navigate = useNavigate();
 
+  const handleSubmitToTopics = (event) => {
+    props.setTopic(event.target.innerText);
+    navigate(`/${props.searchCountry}/0/${event.target.innerHTML}`);
+  };
+
+  console.log(props.topic);
   const enterTopics = async () => {
     const requestOptions = {
       method: "GET",
@@ -19,11 +28,12 @@ const MainThread = (props) => {
     const url = `http://127.0.0.1:5001/topics/Singapore/0`;
     const response = await fetch(url, requestOptions);
     const data = await response.json();
-
-    const mapTitle = data.map((title) => {
+    resultsCtx.setResults(data);
+    const mapTitle = data.map((posts, index) => {
       return (
         <>
-          <button>{title.title}</button>
+          <Link to={`/Singapore/0/${posts.title}/${index}`}>{posts.title}</Link>
+          <br />
         </>
       );
     });
@@ -35,17 +45,14 @@ const MainThread = (props) => {
 
   useEffect(() => {
     enterTopics();
+    const controller = new AbortController();
+    return () => {
+      console.log("cleanup");
+      controller.abort();
+    };
   }, []);
 
-  const handleSubmitToTopics = (event) => {
-    // console.log(event.target.innerText);
-    // enterTopics();
-    setTopic(event.target.innerText);
-    // setClicked(true);
-  };
-
-  // map through
-
+  console.log(postTitle);
   return (
     <>
       <div className="container mainThread">
@@ -61,26 +68,18 @@ const MainThread = (props) => {
         <div className="mainThreadBody">
           <div className="mainThreadWelcome">
             <h5>Welcome Center</h5>
-            {/* <li onClick={handleSubmitToTopics}>
-              Rules
-              <IndividualPost searchCountry={searchCountry} topic={topic} />
-            </li> */}
-            {/* {click ? (
-              <IndividualPost searchCountry={searchCountry} topic={topic} />
-            ) : (
-              <li onClick={handleSubmitToTopics}>{hello[0]}</li>
-            )} */}
-            {/* {postTitle !== ["1"] ? (
-              <button onClick={handleSubmitToTopics}>{postTitle}</button>
-            ) : null} */}
             {postTitle}
-            <IndividualPost />
+
           </div>
           <div className="mainThreadPopular">
-            <h5>Popular Places to Go</h5>
+            <NavLink to={`/${props.searchCountry}/1`}>
+              <h5>Popular Places to Go</h5>
+            </NavLink>
           </div>
           <div className="mainThreadGeneral">
-            <h5>General Discussions</h5>
+            <NavLink to={`/${props.searchCountry}/2`}>
+              <h5>General Discussions</h5>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -89,3 +88,16 @@ const MainThread = (props) => {
 };
 
 export default MainThread;
+
+{
+  /* <Link>
+<IndividualPost
+  title={posts.title}
+  content={posts.content}
+  createdAt={posts.createdAt}
+  _id={posts._id}
+  categories={posts.categories}
+/>
+</Link>
+<button onClick={handleSubmitToTopics}>{posts.title}</button> */
+}
