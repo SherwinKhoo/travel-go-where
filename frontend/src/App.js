@@ -79,6 +79,16 @@ const App = () => {
                     />
                   }
                 ></Route>
+                <Route
+                  path={"/topics/Singapore/0/newPost"}
+                  element={
+                    <CreatePost
+                      title={title}
+                      categories={categories}
+                      content={content}
+                    />
+                  }
+                />
               </Routes>
             </main>
           </resultsContext2.Provider>

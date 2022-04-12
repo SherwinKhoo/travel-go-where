@@ -4,6 +4,8 @@ const LoginPage = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [hasLoggedIn, setHasLoggedIn] = useState(Boolean);
+
   //   const [login, setLogin] = useState(false) // terrible way to determine if logged in
 
   const loginUser = async () => {
@@ -18,6 +20,7 @@ const LoginPage = (props) => {
         password: password,
       }),
     });
+    setHasLoggedIn(true);
   };
 
   const registerUser = async () => {
@@ -54,44 +57,48 @@ const LoginPage = (props) => {
 
   return (
     <>
-      <form className="container loginForm" onSubmit={handleLoginClick}>
-        <div className="row">
-          <input
-            className="login"
-            type="text"
-            // name="username"
-            placeholder="Enter username..."
-            value={username}
-            onChange={handleUserChange}
-          />
-        </div>
-        <div className="row">
-          <input
-            type="password"
-            className="login"
-            // name="password"
-            placeholder="Enter password..."
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
-        <div className="row">
-          <button
-            type="button"
-            className="col-md-6 btn btnRegister"
-            onClick={handleRegisterClick}
-          >
-            Register
-          </button>
-          <button
-            type="button"
-            className="col-md-6 btn btnLogin"
-            onClick={handleLoginClick}
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+      {hasLoggedIn ? (
+        `<div>Welcome, ${username}div>`
+      ) : (
+        <form className="container loginForm" onSubmit={handleLoginClick}>
+          <div className="row">
+            <input
+              className="login"
+              type="text"
+              // name="username"
+              placeholder="Enter username..."
+              value={username}
+              onChange={handleUserChange}
+            />
+          </div>
+          <div className="row">
+            <input
+              type="password"
+              className="login"
+              // name="password"
+              placeholder="Enter password..."
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+          <div className="row">
+            <button
+              type="button"
+              className="col-md-6 btn btnRegister"
+              onClick={handleRegisterClick}
+            >
+              Register
+            </button>
+            <button
+              type="button"
+              className="col-md-6 btn btnLogin"
+              onClick={handleLoginClick}
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      )}
     </>
   );
 };
