@@ -85,7 +85,7 @@ const IndividualPost2 = (props) => {
         <button
           className="col-md-1 btn individualPostDelete"
           // value={displayPost._id}
-          onClick={handleDelete}
+          onClick={handleDeleteClick}
         >
           Delete
         </button>
