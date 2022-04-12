@@ -8,8 +8,8 @@ const MainThread = (props) => {
   //   const [click, setClicked] = useState(false);
   const [postTitle, setpostTitle] = useState(["1"]);
 
-  const [showPost, setShowPost] = useState(false);
-  const [onePost, setOnePost] = useState("why is the state not updating?");
+  const [showPost, setShowPost] = useState(true);
+  const [onePost, setOnePost] = useState("");
 
   let navigate = useNavigate();
 
@@ -31,9 +31,9 @@ const MainThread = (props) => {
 
     const mapTitle = data.map((title) => {
       return (
-        <>
-          <button onClick={handlePostTitleClick}>{title.title}</button>
-        </>
+        <li className="mainThreadPostTitles" onClick={handlePostTitleClick}>
+          {title.title}
+        </li>
       );
     });
     setpostTitle(mapTitle);
@@ -56,8 +56,20 @@ const MainThread = (props) => {
     const data = await response.json();
 
     setOnePost(data[0]);
-    console.log(onePost);
     console.log(data[0]);
+    setShowPost(false);
+  };
+  console.log(onePost);
+  console.log(showPost);
+  console.log(onePost.content);
+
+  const renderOnePost = () => {
+    return (
+      <>
+        <h5>{onePost.title}</h5>
+        <h5>{onePost.content}</h5>
+      </>
+    );
   };
 
   const handleSubmitToTopics = (event) => {
@@ -94,7 +106,8 @@ const MainThread = (props) => {
             {/* {postTitle !== ["1"] ? (
               <button onClick={handleSubmitToTopics}>{postTitle}</button>
             ) : null} */}
-            {postTitle}
+            <ul>{postTitle}</ul>
+            {showPost ? renderOnePost : "do not show post"}
           </div>
           <div className="mainThreadPopular">
             <h5>Popular Places to Go</h5>
