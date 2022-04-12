@@ -79,6 +79,11 @@ const IndividualPost2 = (props) => {
     setEdit(false);
   };
 
+  const handleBackClick = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
   return (
     <>
       <div className="container individualPostContainer">
@@ -131,6 +136,13 @@ const IndividualPost2 = (props) => {
               onClick={handleDeleteClick}
             >
               Delete
+            </button>
+            <button
+              className="col-md-1 btn individualPostBack"
+              // value={displayPost._id}
+              onClick={handleBackClick}
+            >
+              Back
             </button>
           </div>
         )}
