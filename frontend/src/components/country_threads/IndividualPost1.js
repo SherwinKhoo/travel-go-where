@@ -1,11 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const IndividualPost1 = (props) => {
   const params = useParams();
   console.log(props.value.results1[params.index]);
   const displayPost = props.value.results1[params.index];
   console.log(displayPost);
+
+  let nagivate = useNavigate();
 
   const tags = displayPost.categories.map((list, index) => {
     return (
@@ -27,13 +29,12 @@ const IndividualPost1 = (props) => {
     );
     if (res.status === 200) {
       console.log("post deleted");
-      // code to re-render the page??
     }
   };
 
   const handleDelete = (event) => {
     deletePost(displayPost._id);
-    console.log(displayPost._id);
+    nagivate("/Singapore");
   };
 
   return (
