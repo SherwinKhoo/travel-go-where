@@ -21,6 +21,7 @@ const LoginPage = (props) => {
       }),
     });
     setHasLoggedIn(true);
+    props.setUser(username);
   };
 
   const registerUser = async () => {

@@ -24,7 +24,7 @@ const MainThread = (props) => {
   //   navigate(`/${props.searchCountry}/0/${event.target.innerHTML}`);
   // };
 
-  console.log(props.topic);
+  // console.log(props.topic);
   const enterTopics0 = async () => {
     const requestOptions = {
       method: "GET",
@@ -44,7 +44,7 @@ const MainThread = (props) => {
       );
     });
 
-    console.log(data);
+    // console.log(data);
     // console.log(data[0].title);
     setpostTitle0(mapTitle);
   };
@@ -68,7 +68,7 @@ const MainThread = (props) => {
       );
     });
 
-    console.log(data);
+    // console.log(data);
     // console.log(data[0].title);
     setpostTitle1(mapTitle);
   };
@@ -92,26 +92,21 @@ const MainThread = (props) => {
       );
     });
 
-    console.log(data);
+    // console.log(data);
     // console.log(data[0].title);
     setpostTitle2(mapTitle);
   };
 
-  useEffect(
-    () => {
-      enterTopics0();
-      enterTopics1();
-      enterTopics2();
-      const controller = new AbortController();
-      return () => {
-        console.log("cleanup");
-        controller.abort();
-      };
-    },
-    [
-      /*postTitle0*/
-    ]
-  );
+  useEffect(() => {
+    enterTopics0();
+    enterTopics1();
+    enterTopics2();
+    const controller = new AbortController();
+    return () => {
+      // console.log("cleanup");
+      controller.abort();
+    };
+  }, [postTitle0]);
 
   const handleAdd = (event) => {
     event.preventDefault();
