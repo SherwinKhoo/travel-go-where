@@ -89,6 +89,7 @@ const IndividualPost1 = (props) => {
       <div className="container individualPostContainer">
         <div className="individualPostHead">
           <h1>{displayPost.title}</h1>
+          {/* <p>{displayPost.username}</p> */}
         </div>
         {edit ? (
           <div className="individualPostForm">

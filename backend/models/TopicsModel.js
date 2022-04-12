@@ -15,6 +15,7 @@ const topicsSchema = Schema(
       type: Schema.Types.ObjectId,
       ref: "Users",
     },
+    username: { type: String },
   },
   { timestamps: true }
 );

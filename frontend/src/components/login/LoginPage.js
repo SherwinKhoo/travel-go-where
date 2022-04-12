@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [hasLoggedIn, setHasLoggedIn] = useState(Boolean);
+  const [hasLoggedIn, setHasLoggedIn] = useState(false);
+
+  let navigate = useNavigate();
 
   //   const [login, setLogin] = useState(false) // terrible way to determine if logged in
 
   const loginUser = async () => {
-    /* const response = */ await fetch(`http://127.0.0.1:5001/sessions/login`, {
+    const response = await fetch(`http://127.0.0.1:5001/sessions/login`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -20,8 +23,12 @@ const LoginPage = (props) => {
         password: password,
       }),
     });
-    setHasLoggedIn(true);
-    props.setUser(username);
+    if (response.status === 200) {
+      setHasLoggedIn(true);
+      props.setUser(username);
+      localStorage.setItem("currentUser", JSON.stringify(username));
+    }
+    refresh();
   };
 
   const registerUser = async () => {
@@ -36,6 +43,14 @@ const LoginPage = (props) => {
         password: password,
       }),
     });
+  };
+
+  const destroySession = async () => {
+    await fetch(`http://127.0.0.1:5001/sessions/logout`);
+  };
+
+  const refresh = () => {
+    window.location.reload();
   };
 
   const handleLoginClick = (event) => {
@@ -56,10 +71,20 @@ const LoginPage = (props) => {
     setPassword(event.target.value);
   };
 
+  const handleLogOut = () => {
+    destroySession();
+    localStorage.clear();
+    // refresh();
+    navigate(`/`);
+  };
+
   return (
     <>
-      {hasLoggedIn ? (
-        `<div>Welcome, ${username}div>`
+      {localStorage.getItem("currentUser") !== null ? (
+        <div>
+          Welcome, {JSON.parse(window.localStorage.getItem("currentUser"))}
+          <button onClick={handleLogOut}>Logout</button>
+        </div>
       ) : (
         <form className="container loginForm" onSubmit={handleLoginClick}>
           <div className="row">
