@@ -174,7 +174,7 @@ const MainThread = (props) => {
           </div>
           <div className="mainThreadPopular">
             {/* <NavLink to={`/${props.searchCountry}/1`}> */}
-            <h5 className="title">Popular Places to Go</h5>
+            <h5 className="title">Popular Right Now</h5>
             {postTitle1}
             {/* </NavLink> */}
           </div>

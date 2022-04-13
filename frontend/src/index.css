@@ -204,7 +204,10 @@ form {
 
 .individualPostBack,
 .individualPostEdit,
-.individualPostDelete .createPostSubmit,
+.individualPostDelete,
+.individualPostSubmit,
+.individualPostCancel,
+.createPostSubmit,
 .createPostBack {
   margin: 0px 5px 0px 5px;
 }
