@@ -17,6 +17,17 @@ const MainThread = (props) => {
   const [postTitle1, setpostTitle1] = useState(["1"]);
   const [postTitle2, setpostTitle2] = useState(["2"]);
 
+  const [showAddButton, setShowAddButton] = useState(false);
+
+  useEffect(() => {
+    const displayUser = localStorage.getItem("currentUser");
+    if (displayUser !== null) {
+      setShowAddButton(true);
+    } else {
+      setShowAddButton(false);
+    }
+  }, []);
+
   let navigate = useNavigate();
 
   // const handleSubmitToTopics = (event) => {
@@ -106,7 +117,7 @@ const MainThread = (props) => {
       // console.log("cleanup");
       controller.abort();
     };
-  }, [postTitle0]);
+  }, []);
 
   const handleAdd = (event) => {
     event.preventDefault();
@@ -118,9 +129,13 @@ const MainThread = (props) => {
       <div className="container mainThread">
         <div className="row mainThreadHead">
           <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
-          <button onClick={handleAdd} className="col-md-4 btn mainThreadAdd">
-            Add New Post
-          </button>
+          {showAddButton ? (
+            <button onClick={handleAdd} className="col-md-4 btn mainThreadAdd">
+              Add New Post
+            </button>
+          ) : (
+            <div className="col-md-4"></div>
+          )}
           <input
             className="mainThreadSearchBar col-md-4"
             type="text"
