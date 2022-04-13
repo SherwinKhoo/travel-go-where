@@ -94,13 +94,13 @@ const CreatePost = (props) => {
         </div>
         <div className="row createPostInput">
           <div className="col-md-2"></div>
-          <button type="submit" className="btn col-md-1">
+          <button type="submit" className="btn col-md-1 createPostSubmit">
             Submit
           </button>
           <button
             type="button"
             onClick={handleBackClick}
-            className="btn col-md-1"
+            className="btn col-md-1 createPostBack"
           >
             Back
           </button>
