@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LandingPageCards from "./LandingPageCards";
-import landingPageBackgroundImage from "../images/background2.jpeg";
+import landingPageBackgroundImage from "../images/hongkong.jpeg";
 
 const LandingPage = (props) => {
   const [showCards, setShowCards] = useState(false);
@@ -44,12 +44,12 @@ const LandingPage = (props) => {
       <img
         src={landingPageBackgroundImage}
         className="landingPageBackgroundImage"
-        // style={{
-        //   position: "absolute",
-        //   width: `100%`,
-        //   height: `100%`,
-        //   objectFit: "cover",
-        // }}
+        style={{
+          position: "absolute",
+          width: `100%`,
+          height: `100%`,
+          objectFit: "cover",
+        }}
       />
       <form onSubmit={handleSubmit}>
         <h1 className="landingPageTitle">TRAVEL GO WHERE</h1>
