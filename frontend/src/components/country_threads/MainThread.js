@@ -6,6 +6,8 @@ import resultsContext0 from "../context/resultsContext0";
 import resultsContext1 from "../context/resultsContext1";
 import resultsContext2 from "../context/resultsContext2";
 
+import mainThreadBackgroundImage from "../images/singapore2.jpeg";
+
 const MainThread = (props) => {
   const resultsCtx0 = useContext(resultsContext0);
   const resultsCtx1 = useContext(resultsContext1);
@@ -49,7 +51,9 @@ const MainThread = (props) => {
     const mapTitle = data.map((posts, index) => {
       return (
         <>
-          <Link to={`/Singapore/0/${posts.title}/${index}`}>{posts.title}</Link>
+          <Link to={`/Singapore/0/${posts.title}/${index}`} className="link">
+            {posts.title}
+          </Link>
           <br />
         </>
       );
@@ -73,7 +77,9 @@ const MainThread = (props) => {
     const mapTitle = data.map((posts, index) => {
       return (
         <>
-          <Link to={`/Singapore/1/${posts.title}/${index}`}>{posts.title}</Link>
+          <Link to={`/Singapore/1/${posts.title}/${index}`} className="link">
+            {posts.title}
+          </Link>
           <br />
         </>
       );
@@ -97,7 +103,9 @@ const MainThread = (props) => {
     const mapTitle = data.map((posts, index) => {
       return (
         <>
-          <Link to={`/Singapore/2/${posts.title}/${index}`}>{posts.title}</Link>
+          <Link to={`/Singapore/2/${posts.title}/${index}`} className="link">
+            {posts.title}
+          </Link>
           <br />
         </>
       );
@@ -126,17 +134,33 @@ const MainThread = (props) => {
 
   return (
     <>
+      <img
+        src={mainThreadBackgroundImage}
+        className="landingPageBackgroundImage"
+        style={{
+          position: "absolute",
+          width: `100%`,
+          height: `28%`,
+          objectFit: "cover",
+          zIndex: "-1",
+        }}
+      />
       <div className="container mainThread">
         <div className="row mainThreadHead">
-          <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
-          <div className="col-md-4"></div>
-          {showAddButton ? (
-            <button onClick={handleAdd} className="col-md-4 btn mainThreadAdd">
-              Add New Post
-            </button>
-          ) : (
-            <div className="col-md-4"></div>
-          )}
+          <div className="row">
+            <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
+            <div className="col-md-6"></div>
+            {showAddButton ? (
+              <button
+                onClick={handleAdd}
+                className="col-md-2 btn mainThreadAdd"
+              >
+                New Post
+              </button>
+            ) : (
+              <div className="col-md-2"></div>
+            )}
+          </div>
           {/* <input
             className="mainThreadSearchBar col-md-4"
             type="text"
