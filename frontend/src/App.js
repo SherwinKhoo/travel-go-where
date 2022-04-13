@@ -14,6 +14,8 @@ import resultsContext0 from "./components/context/resultsContext0";
 import resultsContext1 from "./components/context/resultsContext1";
 import resultsContext2 from "./components/context/resultsContext2";
 
+// import Seed from "./components/users/Seed";
+
 const App = () => {
   // const saveCountry = localStorage.setItem("countryState",)
 
@@ -26,6 +28,7 @@ const App = () => {
 
   return (
     <>
+      {/* <Seed /> */}
       <LoginPage user={user} setUser={setUser} />
       <resultsContext0.Provider value={{ results0, setResults0 }}>
         <resultsContext1.Provider value={{ results1, setResults1 }}>

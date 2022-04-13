@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const IndividualPost1 = (props) => {
   const [content, setContent] = useState("");
   const [edit, setEdit] = useState(false);
+  const [showModifyButtons, setShowModifyButtons] = useState(false);
 
   const params = useParams();
   console.log(props.value.results1[params.index]);
@@ -84,6 +85,15 @@ const IndividualPost1 = (props) => {
     navigate(-1);
   };
 
+  useEffect(() => {
+    const displayUser = localStorage.getItem("currentUser");
+    if (displayUser !== null) {
+      setShowModifyButtons(true);
+    } else {
+      setShowModifyButtons(false);
+    }
+  }, [showModifyButtons]);
+
   const displayUser = JSON.stringify(localStorage.getItem("currentUser"));
   console.log(displayUser);
   return (
@@ -91,11 +101,17 @@ const IndividualPost1 = (props) => {
       <div className="container individualPostContainer">
         <div className="individualPostHead">
           <h1>{displayPost.title}</h1>
-          <p>written by: {displayUser}</p>
+          {/* {displayUser !== null ? (
+            <>
+              <h6>written by: {displayUser}</h6>
+            </>
+          ) : (
+            <></>
+          )} */}
         </div>
         {edit ? (
           <div className="individualPostForm">
-            <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
+            <h6 className="col-md-1 individualPostId">#{displayPost.postId}</h6>
             <input
               onChange={handleContentChange}
               defaultValue={displayPost.content}
@@ -123,23 +139,9 @@ const IndividualPost1 = (props) => {
           </div>
         ) : (
           <div className="individualPostPost">
-            <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
-            <h5>{displayPost.content}</h5>
+            <h6 className="col-md-1 individualPostId">#{displayPost.postId}</h6>
+            <h6>{displayPost.content}</h6>
             <ul>{tags}</ul>
-            <button
-              onClick={handleEditClick}
-              onChange={handleContentChange}
-              className="col-md-1 btn individualPostEdit"
-            >
-              Edit
-            </button>
-            <button
-              className="col-md-1 btn individualPostDelete"
-              // value={displayPost._id}
-              onClick={handleDeleteClick}
-            >
-              Delete
-            </button>
             <button
               className="col-md-1 btn individualPostBack"
               // value={displayPost._id}
@@ -147,6 +149,37 @@ const IndividualPost1 = (props) => {
             >
               Back
             </button>
+            {showModifyButtons ? (
+              <>
+                <button
+                  onClick={handleEditClick}
+                  onChange={handleContentChange}
+                  className="col-md-1 btn individualPostEdit"
+                >
+                  Edit
+                </button>
+                <button
+                  className="col-md-1 btn individualPostDelete"
+                  // value={displayPost._id}
+                  onClick={handleDeleteClick}
+                >
+                  Delete
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  // onClick={handleEditClick}
+                  // onChange={handleContentChange}
+                  className="col-md-1 btn individualPostEdit"
+                ></button>
+                <button
+                  className="col-md-1 btn individualPostDelete"
+                  // value={displayPost._id}
+                  // onClick={handleDeleteClick}
+                ></button>
+              </>
+            )}
           </div>
         )}
       </div>
