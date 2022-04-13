@@ -61,7 +61,7 @@ router.get("/:country/:searchTopics/:searchThreads", async (req, res) => {
 router.post("/:country/:searchTreads/newPost", async (req, res) => {
   console.log(req.body);
   try {
-    const findAuthor = await Users.findOne({ username: req.body.author });
+    const findAuthor = await Users.findOne({ author: req.body.author });
     console.log(findAuthor);
     req.body.author = findAuthor._id;
     let newTopic = await Topics.create(req.body);

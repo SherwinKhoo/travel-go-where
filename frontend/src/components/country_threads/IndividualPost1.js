@@ -84,12 +84,14 @@ const IndividualPost1 = (props) => {
     navigate(-1);
   };
 
+  const displayUser = JSON.stringify(localStorage.getItem("currentUser"));
+  console.log(displayUser);
   return (
     <>
       <div className="container individualPostContainer">
         <div className="individualPostHead">
           <h1>{displayPost.title}</h1>
-          {/* <p>{displayPost.username}</p> */}
+          <p>written by: {displayUser}</p>
         </div>
         {edit ? (
           <div className="individualPostForm">

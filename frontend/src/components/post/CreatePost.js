@@ -16,8 +16,8 @@ const CreatePost = (props) => {
       typeOfPost: 1,
       categories: categories,
       country: "Singapore",
-      author: props.user,
-      username: props.user,
+      author: localStorage.getItem("currentUser"),
+      username: localStorage.getItem("currentUser"),
     }),
   };
 
