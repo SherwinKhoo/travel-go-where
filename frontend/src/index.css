@@ -34,6 +34,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  opacity: 65%;
 }
 
 .landingPageTitle {
@@ -78,14 +79,30 @@ form {
 
 /* LANDING PAGE CARDS STUFF */
 
-.landingPageCard1,
-.landingPageCard2,
-.landingPageCard3 {
+.landingPageCard1Front,
+.landingPageCard2Front,
+.landingPageCard3Front {
   border-radius: 25px;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+
+.landingPageBackContainer {
+  display: flex;
+  overflow: hidden;
+  height: 10vh;
+}
+
+.landingPageCard1Back,
+.landingPageCard2Back,
+.landingPageCard3Back {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
 }
 
 /* .landingPageCard1:hover,
@@ -97,7 +114,7 @@ form {
 } */
 
 .landingPageCardCountry {
-  margin-top: 10%;
+  margin-top: 2vh;
 }
 
 .flip-card {
@@ -136,13 +153,13 @@ form {
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-color: darkgrey;
   color: black;
   border-radius: 25px;
 }
 
 .flip-card-back {
-  background-color: #2980b9;
+  background-color: rgb(50, 50, 50);
   color: white;
   transform: rotateY(180deg);
   border-radius: 25px;
