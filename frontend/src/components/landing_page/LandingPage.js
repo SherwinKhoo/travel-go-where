@@ -52,12 +52,12 @@ const LandingPage = (props) => {
         }}
       />
       <form onSubmit={handleSubmit}>
-        <h1 className="landingPageTitle">TRAVEL GO WHERE</h1>
+        <h1 className="landingPageTitle">TRAVEL NOWHERE</h1>
         <div className="row">
           <input
             type="text"
             className="landingPageSearch"
-            placeholder="Freedom awaits..."
+            placeholder="Freedom awaits... maybe"
             onChange={handleInputChange}
           />
         </div>
@@ -65,7 +65,9 @@ const LandingPage = (props) => {
           Cannot decide?
         </h6>
         <div className="landingPageCards">
-          {showCards ? <LandingPageCards /> : null}
+          {showCards ? (
+            <LandingPageCards setSearchCountry={props.setSearchCountry} />
+          ) : null}
         </div>
         {/* <NavLink to="/Singapore">
           <button>Enter Singapore</button>

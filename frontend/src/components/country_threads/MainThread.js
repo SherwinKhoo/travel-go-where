@@ -129,6 +129,7 @@ const MainThread = (props) => {
       <div className="container mainThread">
         <div className="row mainThreadHead">
           <h1 className="mainThreadTitle col-md-4">{props.searchCountry}</h1>
+          <div className="col-md-4"></div>
           {showAddButton ? (
             <button onClick={handleAdd} className="col-md-4 btn mainThreadAdd">
               Add New Post
@@ -136,11 +137,11 @@ const MainThread = (props) => {
           ) : (
             <div className="col-md-4"></div>
           )}
-          <input
+          {/* <input
             className="mainThreadSearchBar col-md-4"
             type="text"
             placeholder="Search for a topic"
-          ></input>
+          ></input> */}
         </div>
         <div className="mainThreadBody">
           <div className="mainThreadWelcome">

@@ -81,9 +81,13 @@ const LoginPage = (props) => {
   return (
     <>
       {localStorage.getItem("currentUser") !== null ? (
-        <div>
-          Welcome, {JSON.parse(window.localStorage.getItem("currentUser"))}
-          <button onClick={handleLogOut}>Logout</button>
+        <div className="welcomeMessage">
+          <div>
+            Welcome, {JSON.parse(window.localStorage.getItem("currentUser"))}!
+          </div>
+          <button className="btn btnLogout" onClick={handleLogOut}>
+            Logout
+          </button>
         </div>
       ) : (
         <form className="container loginForm" onSubmit={handleLoginClick}>

@@ -1,6 +1,7 @@
 import React, { useState, useContext, Suspense } from "react";
 import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
 import LandingPage from "./components/landing_page/LandingPage";
+import LandingPageCards from "./components/landing_page/LandingPageCards";
 import MainThread from "./components/country_threads/MainThread";
 // import PopularPlaces from "./components/country_threads/PopularPlaces";
 import LoginPage from "./components/login/LoginPage";
@@ -25,7 +26,7 @@ const App = () => {
   const [results1, setResults1] = useState([]);
   const [results2, setResults2] = useState([]);
   const [user, setUser] = useState("");
-
+  // console.log(searchCountry);
   return (
     <>
       {/* <Seed /> */}
@@ -39,6 +40,15 @@ const App = () => {
                   path="/"
                   element={<LandingPage setSearchCountry={setSearchCountry} />}
                 ></Route>
+                {/* <Route
+                  path="/"
+                  element={
+                    <LandingPageCards
+                      searchCountry={searchCountry}
+                      setSearchCountry={setSearchCountry}
+                    />
+                  }
+                ></Route> */}
                 <Route
                   path={`/Singapore`}
                   element={

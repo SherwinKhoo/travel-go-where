@@ -46,17 +46,40 @@ const CreatePost = (props) => {
     setCategories(event.target.value);
   };
 
+  const handleBackClick = (event) => {
+    event.preventDefault();
+    navigate(-1);
+  };
+
   return (
     <div>
-      <form onSubmit={handleNewPost}>
-        <label>Title:</label>
-        <input placeholder="enter a post title" onChange={handleTitle} />
-        <label>Content:</label>
-        <input placeholder="input content here" onChange={handleContent} />
-        <label>Categories:</label>
-        <input placeholder="fill in categories" onChange={handleCategories} />
-
-        <button>Submit</button>
+      <form className="container createPostContainer" onSubmit={handleNewPost}>
+        <h1 className="createPostHeader">Create New Post</h1>
+        <div className="row">
+          <label>Title:</label>
+          <input placeholder="enter a post title" onChange={handleTitle} />
+        </div>
+        <div className="row">
+          <label>Content:</label>
+          <textarea placeholder="input content here" onChange={handleContent} />
+        </div>
+        <div className="row">
+          <label>Categories:</label>
+          <input placeholder="fill in categories" onChange={handleCategories} />
+        </div>
+        <div className="row">
+          <button type="submit" className="btn col-md-1">
+            Submit
+          </button>
+          <button
+            type="button"
+            onClick={handleBackClick}
+            className="btn col-md-1"
+          >
+            Back
+          </button>
+          <div className="col-md-10"></div>
+        </div>
 
         {/* <div className="container individualPostContainer">
           <h5 className="col-md-1 individualPostId">#{displayPost.postId}</h5>
