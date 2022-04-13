@@ -13,7 +13,7 @@ const CreatePost = (props) => {
     body: JSON.stringify({
       title: title,
       content: content,
-      typeOfPost: 1,
+      typeOfPost: 2,
       categories: categories,
       country: "Singapore",
       author: localStorage.getItem("currentUser"),

@@ -15,6 +15,8 @@ import resultsContext1 from "./components/context/resultsContext1";
 import resultsContext2 from "./components/context/resultsContext2";
 
 const App = () => {
+  // const saveCountry = localStorage.setItem("countryState",)
+
   const [searchCountry, setSearchCountry] = useState("");
   const [topic, setTopic] = useState("");
   const [results0, setResults0] = useState([]);
@@ -35,7 +37,7 @@ const App = () => {
                   element={<LandingPage setSearchCountry={setSearchCountry} />}
                 ></Route>
                 <Route
-                  path={`/${searchCountry}`}
+                  path={`/Singapore`}
                   element={
                     <MainThread
                       searchCountry={searchCountry}

@@ -120,7 +120,7 @@ const LoginPage = (props) => {
               className="col-md-6 btn btnLogin"
               onClick={handleLoginClick}
             >
-              Submit
+              Login
             </button>
           </div>
         </form>

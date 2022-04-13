@@ -26,7 +26,7 @@ const MainThread = (props) => {
     } else {
       setShowAddButton(false);
     }
-  }, []);
+  }, [showAddButton]);
 
   let navigate = useNavigate();
 
