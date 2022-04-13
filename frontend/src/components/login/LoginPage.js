@@ -83,11 +83,20 @@ const LoginPage = (props) => {
       {localStorage.getItem("currentUser") !== null ? (
         <div className="welcomeMessage">
           <div>
-            Welcome, {JSON.parse(window.localStorage.getItem("currentUser"))}!
+            <p className="welcomeMessage2">
+              Welcome,{" "}
+              <span>
+                {JSON.parse(window.localStorage.getItem("currentUser"))}
+              </span>
+              !
+            </p>
           </div>
-          <button className="btn btnLogout" onClick={handleLogOut}>
-            Logout
-          </button>
+          <div className="row logout">
+            <div className="col-md-4"></div>
+            <button className="btn col-md-8 btnLogout" onClick={handleLogOut}>
+              Logout
+            </button>
+          </div>
         </div>
       ) : (
         <form className="container loginForm" onSubmit={handleLoginClick}>
@@ -114,14 +123,14 @@ const LoginPage = (props) => {
           <div className="row">
             <button
               type="button"
-              className="col-md-6 btn btnRegister"
+              className="col-md-7 btn btnRegister"
               onClick={handleRegisterClick}
             >
               Register
             </button>
             <button
               type="button"
-              className="col-md-6 btn btnLogin"
+              className="col-md-5 btn btnLogin"
               onClick={handleLoginClick}
             >
               Login

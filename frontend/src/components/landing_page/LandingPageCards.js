@@ -57,7 +57,7 @@ const LandingPageCards = (props) => {
               <img src={malaysia} className="landingPageCard1Back" alt="" />
             </div>
             <h5 className="landingPageCardCountry">Malaysia</h5>
-            <h6 className="landingPageCardDescription">Truely Asia</h6>
+            <h6 className="landingPageCardDescription">Truly Asia</h6>
           </div>
         </div>
       </div>

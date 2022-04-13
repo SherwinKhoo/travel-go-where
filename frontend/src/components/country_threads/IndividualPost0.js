@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import individualPostBackgroundIMage from "../images/hongkong.jpeg";
+
 const IndividualPost0 = (props) => {
   const [content, setContent] = useState("");
   const [edit, setEdit] = useState(false);
@@ -98,9 +100,20 @@ const IndividualPost0 = (props) => {
   console.log(displayUser);
   return (
     <>
+      <img
+        src={individualPostBackgroundIMage}
+        className="individualPostBackgroundIMage"
+        style={{
+          position: "absolute",
+          width: `100%`,
+          height: `28%`,
+          objectFit: "cover",
+          zIndex: "-1",
+        }}
+      />
       <div className="container individualPostContainer">
         <div className="individualPostHead">
-          <h1>{displayPost.title}</h1>
+          <h1 className="indivuidualPostTitle">{displayPost.title}</h1>
           {/* {displayUser !== null ? (
             <>
               <h6>written by: {displayUser}</h6>
@@ -112,10 +125,11 @@ const IndividualPost0 = (props) => {
         {edit ? (
           <div className="individualPostForm">
             <h6 className="col-md-1 individualPostId">#{displayPost.postId}</h6>
-            <input
+            <textarea
               onChange={handleContentChange}
               defaultValue={displayPost.content}
-            ></input>
+              style={{ width: "100%" }}
+            ></textarea>
             <ul>
               <li className="individualPostTags">edited</li>
               {tags}
@@ -168,16 +182,8 @@ const IndividualPost0 = (props) => {
               </>
             ) : (
               <>
-                <button
-                  // onClick={handleEditClick}
-                  // onChange={handleContentChange}
-                  className="col-md-1 btn individualPostEdit"
-                ></button>
-                <button
-                  className="col-md-1 btn individualPostDelete"
-                  // value={displayPost._id}
-                  // onClick={handleDeleteClick}
-                ></button>
+                <div className="col-md-1"></div>
+                <div className="col-md-1"></div>
               </>
             )}
           </div>

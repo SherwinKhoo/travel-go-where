@@ -34,7 +34,7 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 65%;
+  opacity: 80%;
 }
 
 .landingPageTitle {
@@ -173,20 +173,35 @@ form {
   right: 3vh;
 }
 
+.welcomeMessage2 {
+  margin: 0px;
+  padding: 0px;
+  color: white;
+}
+
+.logout {
+  padding: 0px;
+  margin: 0px;
+}
+
 .loginForm {
   position: absolute;
   top: 5%;
   right: 5%;
-  width: 20vh;
+  width: 25vh;
 }
 
-.btnRegister,
-.btnLogin,
-.btnLogout,
-.mainThreadAdd {
+.btn {
   border: 1px solid black;
-  background-color: lightgrey;
+  border-radius: 12px;
+  background-color: rgb(16, 90, 239);
+  color: white;
+  margin: 1vh;
   padding: 0px;
+}
+
+.mainThreadAdd {
+  margin: 0px;
 }
 
 /* MAIN THREAD STUFF */
@@ -194,8 +209,9 @@ form {
 .mainThread {
   position: absolute;
   top: 20%;
-  margin-left: 5vh;
-  margin-right: 5vh;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .mainThreadBody {
@@ -203,6 +219,26 @@ form {
   padding: 1vh;
   border: 1px solid black;
   z-index: 1;
+}
+
+.mainThreadTitle {
+  color: white;
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 600;
+  color: white;
+  padding: 3px;
+  padding-left: 6px;
+  background: linear-gradient(
+    0.25turn,
+    rgb(31 31 98),
+    rgb(48 50 154),
+    rgb(86 50 98),
+    rgb(17 80 237),
+    purple
+  );
 }
 
 .mainThreadWelcome,
@@ -216,14 +252,17 @@ form {
 .link {
   text-decoration: none;
   color: black;
+  font-weight: 450;
 }
 
 /* INDIVIDUAL POST STUFF */
 
 .individualPostContainer {
   position: absolute;
-  top: 15vh;
-  margin: 0vh 2vh 0vh 5vh;
+  top: 20%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .individualPostForm,
@@ -238,6 +277,11 @@ form {
   width: 100%;
 }
 
+.indivuidualPostTitle {
+  color: white;
+  font-weight: 700;
+}
+
 .individualPostTags {
   display: inline;
   margin: 1vh;
@@ -247,6 +291,20 @@ form {
 
 .createPostContainer {
   position: absolute;
-  top: 15vh;
+  top: 20vh;
   margin: 0vh 2vh 0vh 5vh;
+}
+
+.createPostHeader {
+  color: white;
+  font-weight: 700;
+}
+
+.createPostTitle {
+  font-weight: 600;
+  color: black;
+}
+
+.createPostInput {
+  margin: 10px 0px 10px 0px;
 }

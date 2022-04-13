@@ -57,7 +57,7 @@ const LandingPage = (props) => {
           <input
             type="text"
             className="landingPageSearch"
-            placeholder="Freedom awaits... maybe"
+            placeholder='const freedom = await fetch("./restrictions");'
             onChange={handleInputChange}
           />
         </div>

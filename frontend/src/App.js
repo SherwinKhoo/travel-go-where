@@ -1,7 +1,7 @@
 import React, { useState, useContext, Suspense } from "react";
 import { Route, Navigate, Routes, useNavigate } from "react-router-dom";
 import LandingPage from "./components/landing_page/LandingPage";
-import LandingPageCards from "./components/landing_page/LandingPageCards";
+// import LandingPageCards from "./components/landing_page/LandingPageCards";
 import MainThread from "./components/country_threads/MainThread";
 // import PopularPlaces from "./components/country_threads/PopularPlaces";
 import LoginPage from "./components/login/LoginPage";

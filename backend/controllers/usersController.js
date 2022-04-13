@@ -12,6 +12,12 @@ const usernameOrPasswordError = {
 router.post("/new", async (req, res) => {
   try {
     console.log(req.body);
+    // is it possible
+    // to intercept
+    // req.body here
+    // and store it
+    // at a separate
+    // location?
     req.body.password = await bcrypt.hash(req.body.password, 10);
     console.log(req.body.password);
     const createdUser = new Users(req.body);

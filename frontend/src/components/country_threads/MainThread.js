@@ -6,7 +6,7 @@ import resultsContext0 from "../context/resultsContext0";
 import resultsContext1 from "../context/resultsContext1";
 import resultsContext2 from "../context/resultsContext2";
 
-import mainThreadBackgroundImage from "../images/singapore2.jpeg";
+import mainThreadBackgroundImage from "../images/hongkong.jpeg";
 
 const MainThread = (props) => {
   const resultsCtx0 = useContext(resultsContext0);
@@ -136,7 +136,7 @@ const MainThread = (props) => {
     <>
       <img
         src={mainThreadBackgroundImage}
-        className="landingPageBackgroundImage"
+        className="mainThreadBackgroundImage"
         style={{
           position: "absolute",
           width: `100%`,
@@ -169,18 +169,18 @@ const MainThread = (props) => {
         </div>
         <div className="mainThreadBody">
           <div className="mainThreadWelcome">
-            <h5>Welcome Center</h5>
+            <h5 className="title">Welcome Center</h5>
             {postTitle0}
           </div>
           <div className="mainThreadPopular">
             {/* <NavLink to={`/${props.searchCountry}/1`}> */}
-            <h5>Popular Places to Go</h5>
+            <h5 className="title">Popular Places to Go</h5>
             {postTitle1}
             {/* </NavLink> */}
           </div>
           <div className="mainThreadGeneral">
             {/* <NavLink to={`/${props.searchCountry}/2`}> */}
-            <h5>General Discussions</h5>
+            <h5 className="title">General Discussions</h5>
             {postTitle2}
             {/* </NavLink> */}
           </div>

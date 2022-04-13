@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import mainThreadBackgroundImage from "../images/hongkong.jpeg";
+
 const CreatePost = (props) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -53,21 +55,45 @@ const CreatePost = (props) => {
 
   return (
     <div>
+      <img
+        src={mainThreadBackgroundImage}
+        className="mainThreadBackgroundImage"
+        style={{
+          position: "absolute",
+          width: `100%`,
+          height: `28%`,
+          objectFit: "cover",
+          zIndex: "-1",
+        }}
+      />
       <form className="container createPostContainer" onSubmit={handleNewPost}>
         <h1 className="createPostHeader">Create New Post</h1>
-        <div className="row">
-          <label>Title:</label>
-          <input placeholder="enter a post title" onChange={handleTitle} />
+        <div className="row createPostInput">
+          <label className="col-md-2 createPostTitle">Title:</label>
+          <input
+            className="col-md-10"
+            placeholder="enter a post title"
+            onChange={handleTitle}
+          />
         </div>
-        <div className="row">
-          <label>Content:</label>
-          <textarea placeholder="input content here" onChange={handleContent} />
+        <div className="row createPostInput">
+          <label className="col-md-2 createPostTitle">Content:</label>
+          <textarea
+            className="col-md-10"
+            placeholder="input content here"
+            onChange={handleContent}
+          />
         </div>
-        <div className="row">
-          <label>Categories:</label>
-          <input placeholder="fill in categories" onChange={handleCategories} />
+        <div className="row createPostInput">
+          <label className="col-md-2 createPostTitle">Categories:</label>
+          <input
+            className="col-md-10"
+            placeholder="fill in categories"
+            onChange={handleCategories}
+          />
         </div>
-        <div className="row">
+        <div className="row createPostInput">
+          <div className="col-md-2"></div>
           <button type="submit" className="btn col-md-1">
             Submit
           </button>
