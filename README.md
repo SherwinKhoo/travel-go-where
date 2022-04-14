@@ -8,11 +8,12 @@ Amirul Ithnin | Khoo Kiah Hong, Sherwin | Quek Ying Ying
 Reviewers
 Desmond Lim | Ernest Mui | Lim Qizhen
 
-Project: Build a functional \***\*\_\_\*\*** in a week.
+Project: Build a functional **travel forum** in a week.
 
 Technologies Used
 
 1. React.js
+2. Express.js
 
 User Interface
 
@@ -33,9 +34,12 @@ Motivation
 
 Approach Taken
 
-1.
+1. Prepare backend **endpoints**.
+2. Create the frontend application in **React.js**.
 
 Data Structure
+
+1. Refer to powerpoint
 
 Lessons Learnt
 
@@ -43,7 +47,24 @@ Lessons Learnt
 
 Potential Improvements
 
-1.
+1. Appending forum users' usernames to individual post.
+2. Restructure schema to allow for replies to a particular post, instead of requiring the user to create a new post. One way to do it could be to store each reply as an array.
+
+   This is how the data will be stored with the "content" key.
+   content: [
+   {"id": 1, "post": "this is the first post", "deleted": false},
+   {"id": 2, "post": "blah blah blah", "deleted": **false**},
+   {"id": 3, "post": "something", "deleted": false}
+   ]
+
+   For example, if the post with id: 2 is deleted, it should be updated as such.
+   content: [
+   {"id": 1, "post": "this is the first post", "deleted": false},
+   {"id": 2, "post": "blah blah blah", "deleted": **true**},
+   {"id": 3, "post": "something", "deleted": false}
+   ]
+
+   The original post should be stored instead of overwritten for posterity, in the event of a user posting something offensive and the authorities ask for "evidence".
 
 Fair Use
 
