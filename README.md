@@ -19,13 +19,14 @@ User Interface
 
 1. Simple interface
 
-Prioritisation, Goal and Milestones
+Prioritisation, Goal, Milestones, Timeline
 
-1.
-
-Timeline
-
-1.
+1. Ensure that the minumum **CRUD** functions are working.
+2. Start with the **endpoints**.
+   Ensure that the they are worrking using **Postman**.
+3. Create and seed necessary data.
+4. Build the frontend with **React.js**.
+5. Ensure that the minimum CRUD functions can be performed using the frontend components.
 
 Motivation
 
