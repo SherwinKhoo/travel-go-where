@@ -14,6 +14,10 @@ Technologies Used
 
 1. React.js
 2. Express.js
+3. Mongoose
+4. MongoDB
+5. CSS
+6. HTML
 
 User Interface
 
@@ -21,22 +25,22 @@ User Interface
 
 Prioritisation, Goal, Milestones, Timeline
 
-1. Ensure that the minumum **CRUD** functions are working.
-2. Start with the **endpoints**.
-   Ensure that the they are worrking using **Postman**.
-3. Create and seed necessary data.
-4. Build the frontend with **React.js**.
-5. Ensure that the minimum CRUD functions can be performed using the frontend components.
+1. Demonstrate that the minumum **CRUD** functions are working.
+2. Build the frontend with **React.js**.
+3. Ensure that the minimum CRUD functions can be performed using the frontend components.
 
 Motivation
 
-1. Reinforce understanding of React.JS
-2. Add to portfolio
+1. Reinforce understanding of React.js, Express.js, and MongoDB
 
 Approach Taken
 
 1. Prepare backend **endpoints**.
-2. Create the frontend application in **React.js**.
+2. Make sure that all CRUD functions are covered.
+3. Do preliminary testing with **Postman**.
+4. Ensure that all necessary libraries are installed.
+5. Create the frontend application in **React.js**.
+6. Test if the CRUD functions can be performed via the frontend application.
 
 Data Structure
 
@@ -48,24 +52,33 @@ Lessons Learnt
 
 Potential Improvements
 
-1. Appending forum users' usernames to individual post.
-2. Restructure schema to allow for replies to a particular post, instead of requiring the user to create a new post. One way to do it could be to store each reply as an array.
+1. Append forum users' usernames to individual posts, possibly add a timestamp as well.
+
+2. Restructure schema to allow for replies to a particular post; at the moment, posts can be made but without the posibility for reply. A potential way to do it could be to store each reply in an array.
 
    This is how the data will be stored with the "content" key.
+
    content: [
-   {"id": 1, "post": "this is the first post", "deleted": false},
-   {"id": 2, "post": "blah blah blah", "deleted": **false**},
-   {"id": 3, "post": "something", "deleted": false}
+   {"postId": 1, "post": "this is the first post", "deleted": false},
+   {"postId": 2, "post": "blah blah blah", "deleted": **false**},
+   {"postId": 3, "post": "something", "deleted": false}
    ]
 
    For example, if the post with id: 2 is deleted, it should be updated as such.
+
    content: [
-   {"id": 1, "post": "this is the first post", "deleted": false},
-   {"id": 2, "post": "blah blah blah", "deleted": **true**},
-   {"id": 3, "post": "something", "deleted": false}
+   {"postId": 1, "post": "this is the first post", "deleted": false},
+   {"postId": 2, "post": "blah blah blah", "deleted": **true**},
+   {"postId": 3, "post": "something", "deleted": false}
    ]
 
-   The original post should be stored instead of overwritten for posterity, in the event of a user posting something offensive and the authorities ask for "evidence".
+   The original post should be stored instead of overwritten for posterity.
+
+3. Implement a way to index the posts to make it faster, possibly by country, then type of post, then individual post; will need to read up on how to do this.
+
+<!-- country           |          singapore          |           malaysia          |           brunei            |
+     type of post      |    0    |    1    |    2    |    0    |    1    |    2    |    0    |    1    |    2    |
+     individual post   |i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i|i| -->
 
 Fair Use
 
